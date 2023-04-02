@@ -43,7 +43,3 @@ class DashaApiClient:
         params.update({'list_id': list_id})
         return self.__send_request('lists.delete', params)
 
-
-client = DashaApiClient("047dc2e62b1694e88aeca1da2dc87837")
-
-print(client.list_delete('157290'))
