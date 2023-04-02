@@ -1,4 +1,6 @@
 import requests
+
+from exceptions import DashaMailException
 from errors import ERRORS
 
 class DashaApiClient:
@@ -19,7 +21,7 @@ class DashaApiClient:
         if err_code == 0:
             return response['data']
         else:
-            raise Exception(ERRORS[err_code])
+            raise DashaMailException(ERRORS[err_code])
 
     def lists_get(self, list_id: int = None, merge_json: int = None):
         """
@@ -39,7 +41,7 @@ class DashaApiClient:
         params.update({'list_id': list_id})
         return self.__send_request('lists.update', params)
 
-    def list_delete(self, list_id, **params):
+    def lists_delete(self, list_id, **params):
         params.update({'list_id': list_id})
         return self.__send_request('lists.delete', params)
 
