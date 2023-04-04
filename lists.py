@@ -15,9 +15,10 @@ class Lists(BaseEntity):
         params.update({'list_id': list_id})
         return self.api_client.send_request('lists.get_members', params)
     
-    def upload(self, list_id, file: bytes = None, **params):
+    def upload(self, list_id, index_email: int=0, file: bytes=None, file_type: str = None, **params):
         if file:
             file = {'import-file': file}
-        params.update({'list_id': list_id,})
+            params.update({'type': file_type, "email": index_email})
+        params.update({'list_id': list_id, 'email': index_email, 'type': 'csv'})
         return self.api_client.send_request('lists.upload', params=params, files=file)
     
