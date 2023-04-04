@@ -9,8 +9,8 @@ class DashaApiClient:
     def __init__(self,) -> None:
         self.settings = Configuration()
 
-    def send_request(self, method, params=None):
-        response = requests.post(f"{self.settings.api_url}?method={method}&api_key={self.settings.api_key}", params)
+    def send_request(self, method, params=None, files=None):
+        response = requests.post(f"{self.settings.api_url}?method={method}&api_key={self.settings.api_key}", data=params, files=files)
         data = self.__parse_response(response.json())
         return data
 
