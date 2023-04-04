@@ -22,26 +22,3 @@ class DashaApiClient:
             return response['data']
         else:
             raise DashaMailException(ERRORS[err_code])
-
-    def lists_get(self, list_id: int = None, merge_json: int = None):
-        """
-        :param list_id: получить определенную группу
-        :param merge_json: вывод сериализованныъ доп. полей 
-        """
-        params = {}
-        if list_id:
-            params['list_id'] = list_id
-        return self.send_request("lists.get", params)
-
-    def lists_add(self, name='', **params):
-        params.update({'name': name})
-        return self.send_request("lists.add", params)
-
-    def lists_update(self, list_id=None, **params):
-        params.update({'list_id': list_id})
-        return self.send_request('lists.update', params)
-
-    def lists_delete(self, list_id, **params):
-        params.update({'list_id': list_id})
-        return self.send_request('lists.delete', params)
-
