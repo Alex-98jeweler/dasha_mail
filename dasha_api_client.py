@@ -2,15 +2,15 @@ import requests
 
 from exceptions import DashaMailException
 from errors import ERRORS
+from configuration import Configuration
 
 class DashaApiClient:
 
-    def __init__(self, api_key) -> None:
-        self.__api_key = api_key
-        self.__api_url = "https://api.dashamail.ru/"
+    def __init__(self,) -> None:
+        self.settings = Configuration()
 
-    def __send_request(self, method, params=None):
-        response = requests.post(f"{self.__api_url}?method={method}&api_key={self.__api_key}", params)
+    def send_request(self, method, params=None):
+        response = requests.post(f"{self.settings.api_url}?method={method}&api_key={self.settings.api_key}", params)
         data = self.__parse_response(response.json())
         return data
 
@@ -31,17 +31,17 @@ class DashaApiClient:
         params = {}
         if list_id:
             params['list_id'] = list_id
-        return self.__send_request("lists.get", params)
+        return self.send_request("lists.get", params)
 
     def lists_add(self, name='', **params):
         params.update({'name': name})
-        return self.__send_request("lists.add", params)
+        return self.send_request("lists.add", params)
 
     def lists_update(self, list_id=None, **params):
         params.update({'list_id': list_id})
-        return self.__send_request('lists.update', params)
+        return self.send_request('lists.update', params)
 
     def lists_delete(self, list_id, **params):
         params.update({'list_id': list_id})
-        return self.__send_request('lists.delete', params)
+        return self.send_request('lists.delete', params)
 
