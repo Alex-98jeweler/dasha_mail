@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, Union
 from base_entity import BaseEntity
 
 
@@ -64,35 +64,86 @@ class Lists(BaseEntity):
         params['list_id'] = list_id
         return self.api_client.send_request('lists.update_member', params)
 
-    def delete_member(self):
-        pass
+    def delete_member(self, member_id):
+        params = {'member_id': member_id}
+        return self.api_client.send_request('lists.delete_member', params)
 
-    def unsubscribe_member(self):
-        pass
+    def unsubscribe_member(
+                            self, 
+                            member_id: int = None, 
+                            email: str = None, 
+                            list_id: int=None
+                           ):
+        params = {
+            'member_id': member_id,
+            'email': email,
+            'list_id': list_id
+        }
+        return self.api_client.send_request('lists.unsubscribe_member', params)
 
-    def move_member(self):
-        pass
+    def move_member(self, member_id: int, list_id: int):
+        params = {
+            'member_id': member_id,
+            'list_id': list_id
+        }
+        return self.api_client.send_request('lists.move_member', params)
 
-    def copy_member(self):
-        pass
+    def copy_member(self, member_id: int, list_id: int):
+        params = {
+            'member_id': member_id,
+            'list_id': list_id
+        }
+        return self.api_client.send_request('lists.copy_member', params)
 
-    def add_merge(self):
-        pass
+    def add_merge(self,
+                  list_id,
+                  type: str,
+                  choices: list,
+                  **params):
+        buf_params = {
+            'list_id': list_id,
+            'type': type,
+            'choices': choices
+        }
+        params.update(buf_params)
+        return self.api_client.send_request('lists.add_merge', params)
+        
 
-    def update_merge(self):
-        pass
+    def update_merge(self, list_id: int, merge_id: int, **params):
+        buf_params = {
+            'list_id': list_id, 
+            'merge_id': merge_id,
+        }
+        params.update(buf_params)
+        return self.api_client.send_request('lists.update_merge', params)
 
-    def delete_merge(self):
-        pass
+    def delete_merge(self, list_id: int, merge_id: int):
+        params = {
+            'list_id': list_id,
+            'merge_id': merge_id
+        }
+        return self.api_client.send_request('lists.delete_merge', params)
+        
 
-    def last_status(self):
-        pass
+    def last_status(self, email, list_id: int = None):
+        params = {
+            'email': email,
+            'list_id': list_id
+        }
+        return self.api_client.send_request('lists.last_status', params)
 
-    def get_import_history(self):
-        pass
-
-    def check_emai(self):
-        pass
+    def get_import_history(self, list_id: int = None):
+        params = {
+            "list_id": list_id
+        }
+        return self.api_client.send_request('lists.get_import_history', params)
+        
+    def check_email(self, email: str, list_id: int = None):
+        params = {
+            'email': email,
+            'list_id': list_id
+        }
+        return self.api_client.send_request('lists.check_email', params)
 
 
     
