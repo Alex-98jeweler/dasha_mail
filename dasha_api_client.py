@@ -21,4 +21,4 @@ class DashaApiClient:
         if err_code == 0:
             return response['data']
         else:
-            raise DashaMailException(ERRORS[err_code])
+            raise DashaMailException(ERRORS[err_code].capitalize())
