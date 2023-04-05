@@ -1,0 +1,3 @@
+
+class DashaMailException(Exception):
+    pass
