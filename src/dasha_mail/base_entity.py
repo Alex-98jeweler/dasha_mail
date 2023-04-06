@@ -1,4 +1,4 @@
-from dasha_api_client import DashaApiClient
+from dasha_mail.dasha_api_client import DashaApiClient
 
 
 class BaseEntity(object):
