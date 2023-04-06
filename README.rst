@@ -3,6 +3,12 @@
 
 This SDK allows communicate with Dasha Mail API. 
 
+Requirements
+------------
+
+#. Python 3.8 or higher
+#. pip
+
 
 Instalation
 ------------
@@ -46,8 +52,9 @@ On this way you can use class for work with Dasha Mail entities like Lists, Camp
 
     from dasha_mail import Lists
 
-    my_list = Lists()
+    list = Lists()
+    list.get()
 
-    my_list.get()
+Methods of classes have required and optional arguments. Required 
 
 
