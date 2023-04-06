@@ -8,7 +8,7 @@ def readme():
 
 setup(
     name='dasha_mail',
-    version='1.0.0',
+    version='1.0.1',
     author='Dashamail',
     author_email='support@dashamail.ru',
     description='Dasha Mail SDK',
@@ -16,7 +16,7 @@ setup(
     url='https://github.com/Alex-98jeweler/dasha_mail/',
     packages=find_packages('src'),
     package_dir={"": "src"},
-    install_requires=['requests'],
+    install_requires=['certifi', 'charset-normalizer', 'idna', 'requests', 'urllib3'],
     zip_safe=False,
     license='MIT',
     classifiers=[
