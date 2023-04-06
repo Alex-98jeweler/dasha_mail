@@ -1,4 +1,4 @@
-from base_entity import BaseEntity
+from dasha_mail.base_entity import BaseEntity
 
 
 class Campaigns(BaseEntity):

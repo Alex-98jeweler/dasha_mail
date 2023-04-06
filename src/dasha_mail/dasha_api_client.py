@@ -1,8 +1,8 @@
 import requests
 
-from exceptions import DashaMailException
-from errors import ERRORS
-from configuration import Configuration
+from dasha_mail.exceptions import DashaMailException
+from dasha_mail.errors import ERRORS
+from dasha_mail.configuration import Configuration
 
 class DashaApiClient:
 

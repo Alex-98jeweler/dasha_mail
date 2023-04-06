@@ -1,5 +1,5 @@
 from typing import Optional, Union
-from base_entity import BaseEntity
+from dasha_mail.base_entity import BaseEntity
 
 
 class Lists(BaseEntity):
