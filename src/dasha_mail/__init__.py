@@ -5,3 +5,6 @@ from dasha_mail.configuration import Configuration
 from dasha_mail.dasha_api_client import DashaApiClient
 from dasha_mail.exceptions import DashaMailException
 from dasha_mail.errors import ERRORS
+
+
+__version__ = "1.0.1"
