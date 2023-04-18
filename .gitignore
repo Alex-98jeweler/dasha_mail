@@ -2,3 +2,6 @@ __pycache__
 venv
 test.py
 .vscode
+build
+dist
+src/*egg*
