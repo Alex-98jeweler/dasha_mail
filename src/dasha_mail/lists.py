@@ -29,7 +29,12 @@ class Lists(BaseEntity):
             params['filter'] = filter
         return self.api_client.send_request('lists.member_activity', params=params)
 
-    def upload(self, list_id, index_email: int=0, file: bytes=None, file_type: str = None, **params):
+    def upload(self, 
+               list_id, 
+               index_email: int=0, 
+               file: bytes=None, 
+               file_type: str = None, 
+               **params):
         if file:
             file = {'import-file': file}
             params.update(
@@ -41,7 +46,10 @@ class Lists(BaseEntity):
         params.update({'list_id': list_id})
         return self.api_client.send_request('lists.upload', params=params, files=file)
     
-    def add_member(self, list_id, email, **params):
+    def add_member(self, 
+                   list_id, 
+                   email, 
+                   **params):
         params['list_id'] = list_id
         params['email'] = email
         return self.api_client.send_request("lists.add_member", params)
@@ -109,7 +117,10 @@ class Lists(BaseEntity):
         return self.api_client.send_request('lists.add_merge', params)
         
 
-    def update_merge(self, list_id: int, merge_id: int, **params):
+    def update_merge(self, 
+                     list_id: int, 
+                     merge_id: int, 
+                     **params):
         buf_params = {
             'list_id': list_id, 
             'merge_id': merge_id,
