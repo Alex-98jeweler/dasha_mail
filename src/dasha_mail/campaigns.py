@@ -87,8 +87,8 @@ class Campaigns(BaseEntity):
 
     def multi_update(self, campaign_id: int = None, json: dict = None):
         return self.api_client.send_request(
-                                            'campaign.multi_update',
-                                            {
+                                                'campaign.multi_update',
+                                                {
                                                     'campaign_id': campaign_id,
                                                     'json': json
                                                 }

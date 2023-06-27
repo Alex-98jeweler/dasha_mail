@@ -12,14 +12,11 @@ class BaseEntity(object):
 
     def update(self, id, **params):
         params.update({f'{self.name}_id': id})
-        return self.api_client.send_request(
-                                        f'{self.plural_name}.update',
-                                        params
-                                    )
+        return self.api_client.send_request(f'{self.plural_name}.update', params)
 
     def delete(self, id, **params):
         params.update({f'{self.name}_id': id})
         return self.api_client.send_request(
-                                f"{self.plural_name}.delete",
-                                params
-                                )
+                                            f"{self.plural_name}.delete",
+                                            params
+                                        )
