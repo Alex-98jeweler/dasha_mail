@@ -19,9 +19,9 @@ jobs:
           python3 setup.py sdist
       - name: Delivery package to Test PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
-          with:
-            password: ${{ secrets.TEST_PYPI_TOKEN }}
-            repository-url: https://test.pypi.org/legacy/
+        with:
+          password: ${{ secrets.TEST_PYPI_TOKEN }}
+          repository-url: https://test.pypi.org/legacy/
 
       
 
