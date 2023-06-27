@@ -1,6 +1,6 @@
 import requests
 
-from dasha_mail.exceptions import DashaMailException
+from dasha_mail.exceptions import DashaMailExceptionError
 from dasha_mail.errors import ERRORS
 from dasha_mail.configuration import Configuration
 
@@ -26,4 +26,4 @@ class DashaApiClient:
         if err_code == 0:
             return response['data']
         else:
-            raise DashaMailException(ERRORS[err_code].capitalize())
+            raise DashaMailExceptionError(ERRORS[err_code].capitalize())
