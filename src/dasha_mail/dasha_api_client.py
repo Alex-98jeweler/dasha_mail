@@ -4,13 +4,18 @@ from dasha_mail.exceptions import DashaMailException
 from dasha_mail.errors import ERRORS
 from dasha_mail.configuration import Configuration
 
+
 class DashaApiClient:
 
     def __init__(self,) -> None:
         self.settings = Configuration()
 
     def send_request(self, method, params=None, files=None):
-        response = requests.post(f"{self.settings.api_url}?method={method}&api_key={self.settings.api_key}", data=params, files=files)
+        response = requests.post(
+                                f"{self.settings.api_url}?method={method}&api_key={self.settings.api_key}",
+                                data=params,
+                                files=files
+                                )
         data = self.__parse_response(response.json())
         return data
 
