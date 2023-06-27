@@ -1,6 +1,6 @@
 [flake8]
 
-extend-ignore = E126, 
+extend-ignore = E126, E501
 
 per-file-ignores =
     __init__.py: F401
