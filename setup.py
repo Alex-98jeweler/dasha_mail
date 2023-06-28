@@ -8,7 +8,7 @@ def readme():
 
 setup(
     name='dasha_mail',
-    version='1.0.3',
+    version='1.0.4',
     author='Dashamail',
     author_email='support@dashamail.ru',
     description='Dasha Mail SDK',
