@@ -16,7 +16,7 @@ setup(
     url='https://github.com/Alex-98jeweler/dasha_mail/',
     packages=find_packages('src'),
     package_dir={"": "src"},
-    install_requires=['certifi', 'charset-normalizer==3.1.0', 'idna', 'requests', 'urllib3'],
+    install_requires=['certifi==2022.12.7', 'charset-normalizer==3.1.0', 'idna', 'requests', 'urllib3'],
     zip_safe=False,
     license='MIT',
     classifiers=[
