@@ -5,3 +5,5 @@ test.py
 build
 dist
 src/*egg*
+buf/
+.coverage

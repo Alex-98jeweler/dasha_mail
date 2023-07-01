@@ -1,3 +1,3 @@
 
-class DashaMailException(Exception):
+class DashaMailExceptionError(Exception):
     pass
