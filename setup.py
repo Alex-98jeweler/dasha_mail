@@ -1,14 +1,21 @@
+import re
 from setuptools import setup, find_packages
+
 
 def readme():
     with open('README.rst', 'r') as file:
         content = file.read()
     return content
 
+def get_version():
+    with open('src/dasha_mail/__init__.py') as fp:
+        version = re.search(r"__version__\s*=\s*'(.*)'", fp.read()).group(1)
+    return version
+
 
 setup(
     name='dasha_mail',
-    version='1.1.0',
+    version=get_version(),
     author='Dashamail',
     author_email='support@dashamail.ru',
     description='Dasha Mail SDK',
