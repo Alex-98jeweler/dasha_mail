@@ -7,4 +7,4 @@ from dasha_mail.exceptions import DashaMailExceptionError
 from dasha_mail.errors import ERRORS
 
 
-__version__ = "1.0.1"
+__version__ = '1.0.1'
